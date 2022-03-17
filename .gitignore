@@ -20,6 +20,9 @@ lerna-debug.log*
 # Tests
 /coverage
 /.nyc_output
+students.csv
+students.json
+students2.json
 
 # IDEs and editors
 /.idea
