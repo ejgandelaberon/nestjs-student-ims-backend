@@ -2,14 +2,12 @@ import { Injectable } from '@nestjs/common';
 import { CreateStudentDto } from './dto/create-student.dto';
 import { UpdateStudentDto } from './dto/update-student.dto';
 import { Model } from 'mongoose';
-import { Student, StudentDocument } from '../schemas/students.schema';
 import { InjectModel } from '@nestjs/mongoose';
+import { Student } from './entities/student.entity';
 
 @Injectable()
 export class StudentsService {
-  constructor(
-    @InjectModel(Student.name) private readonly model: Model<StudentDocument>,
-  ) {}
+  constructor(@InjectModel('student') private model: Model<Student>) {}
 
   async create(createStudentDto: CreateStudentDto): Promise<Student> {
     return await new this.model({
